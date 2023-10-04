@@ -1,7 +1,7 @@
 The following movements can be created with LATA.
 
 # Taxi
-LATA can create the movement of an aircraft taxiing out/in to/from a parking position from/to the begin/end of a runway.
+LATA can create the movement of an aircraft taxiing out/in from/to a parking position to/from the begin/end of a runway.
 
 The following data need to be supplied:
 - Aircraft model
@@ -10,7 +10,7 @@ The following data need to be supplied:
 - Whether the move is a departure or an arrival
 
 # Tow
-LATA can create the move of an aircraft from a parking position to another.
+LATA can create the move of an aircraft being towed from a parking position to another.
 
 The following data need to be supplied:
 - Aircraft model,
@@ -19,15 +19,18 @@ The following data need to be supplied:
 
 # Turnaround
 LATA can generate all movements of ground support vehicles that are performing turnaround operations.
+
 Turnaround operations are split into arrival services (cleaning, waste, mobile staircase, baggage and cargo offloading, etc.) and departure services (catering, refueling, water, mobile staircase, baggage and cargo loading, etc.).
+
 Movements of vehicles are coordinated according to a turnaround profile. All tasks are timed relative to the on-block time of an arrival or the off-block time of a departure.
+
 Positions of vehicle around the aircraft are determined by an aircraft type profile that give precise positions and orientation of support vehicles around the aircraft.
 
 The following data need to be supplied:
-- Aircraft model
-- Parking position
-- Whether the move is a departure or an arrival
-- Whether it is a passenger or a cargo flight
+- Aircraft model,
+- Parking position,
+- Whether the move is a departure or an arrival,
+- Whether it is a passenger or a cargo flight.
 
 ## Service
 A Turnaround service is an individual movement of a support vehicle. A Service has:
