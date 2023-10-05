@@ -53,6 +53,7 @@ aircraft: C
 
 # Ground Support Equipment
 
+
 ```yaml
 small-train:
   service: baggage
@@ -138,6 +139,9 @@ Optional service name. The name is used in comments. If no name is used, LATA wi
 # Fields Must Match
 
 Configuration files are very loose and permissive. However, when building activity, a few fields must match.
+
+In case no match is found, the movement is abandoned with warning messages written to screen or log files.
+
 ## Service
 The type of Service (catering, fuel, apu…) must match in all file. The string used can be anything, it could be `dummy`, however, the word `dummy` must be the service type in the turnaround profile, in the ground support equipment definition (with the 3D model, and the GSE profile. If there is a mismatch, if a turnaround cannot find a Service, or if a service cannot locate a vehicle, warnings will be issued and the Service will be ignored.
 ## Vehicle
