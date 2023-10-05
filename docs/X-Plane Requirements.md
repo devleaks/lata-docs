@@ -1,6 +1,7 @@
 LATA builds all movements on taxiways and service roads it finds in X-Plane airport definition files.
 
 On startup, LATA will load the definition of the airport:
+
 - Runways,
 - Taxiways (ideally organized in a network),
 - Ramps (aircraft parking positions),
