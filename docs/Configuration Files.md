@@ -5,6 +5,8 @@ LATA uses a set of configuration files. All files are **Yaml** formatted.
 - Turnaround profile.
 # Aircraft Type
 
+Aircraft type it used for two main informations. The overall size of the aircraft for determining average turn around operation times, but also to determine the precise position of ground support vehicle around the aircraft. The later is called the Ground Support Equipment Profile.
+
 ```yaml
 A321:
   model: lata/aircraft/a321.obj
@@ -16,7 +18,9 @@ A321:
 ```
 
 ## Ground Support Equipment Profile
-For a given aircraft type, the purpose of the ground support profile is to specify very precise points where ground support vehicule must stop around the aircraft.
+
+For a given aircraft type, the purpose of the ground support equipment profile is to specify very precise points where ground support vehicule must stop around the aircraft.
+
 Each precise position is given relative to the tip nose of the aircraft.
 
 
@@ -40,9 +44,9 @@ positions:
       - -90
 ```
 
-For example: Sewage truck will stop 35 meters from the nose tip of the aircraft, 2 meters right from the middle longitudinal axis of the aircraft, and will point 80 degrees (right) from the aircraft axis. The name of that position is `sewage-position`. This position is at the back of a typical small aircraft. If a fourth position is given, it is used to control the height of the contact between the ground support vehicle and the aircraft (bridges, loading belts…)
+For example: Sewage truck will stop 35 meters from the nose tip of the aircraft, 2 meters right from the middle longitudinal axis of the aircraft, and will point 80 degrees (right) from the aircraft axis. The name of that position is `sewage-position`. This position is at the back of a typical small aircraft. If a fourth position is given, it is used to control the height of the contact point between the ground support vehicle and the aircraft (bridges, loading belts…) if needed.
 
-Distances are in meters, and can be negative, which correspond to the opposite direction. Laterally, left is negative, longitudinally, in front of the aircraft is negative.
+Distances are in meters, and can be negative, which correspond to the same distance in the opposite direction. Laterally, left is negative, longitudinally, in front of the aircraft is negative.
 
 Without a precise position of support vehicle through a profile, LATA will use a default profile based on the aircraft class. The default fallback class is class `C`, which correspond to an Airbus A320 or a Boeing 737. To identify profile for an aircraft class, the name of the aircraft type need to be the single letter of the class.
 
@@ -53,9 +57,11 @@ aircraft: C
 
 # Ground Support Equipment
 
-Each piece of equipment need to be declared so that it can be associated with an object and reproduced in the simulator.
+Each piece of equipment need to be declared so that it can be associated with an 3D object, called the model, and reproduced in the simulator.
+
 
 ```yaml
+
 small-train:
   service: baggage
   model:
@@ -67,8 +73,7 @@ small-train:
   fast: 30```
 
 ### Key
-The key is the name of the model of service vehicle (example above: `small-train`).
-Please note that in the example above, the model correspond to a set of more than one object chained together, one after the other, each after a `lag` distance.
+The key is the name of the type of service vehicle (example above: `small-train`).
 
 ### Service
 Type of the service this vehicle is used for. This criteria is used when selecting a vehicle for a service.
@@ -78,24 +83,49 @@ X-Plane virtual path to 3D model file.
 The model is searched in all libraries available to X-Plane.
 (The demo only uses standard X-Plane models.)
 
+Please note that in the example above, the model correspond to a list of more than one 3D object chained together, one after the other, each after a `lag` distance. The chain of element is called a *train*.
+
 ### Slow, Speed, and Fast
 The three attributes are the speed of movement in kilometres per hour for the vehicle. Fast is the speed on service roads. Normal is the speed on ramps. Slow is the speed when closing to the aircraft.
 
+> Please note that in LST the speed of an object cannot be zero, in which case the object would stop and no longer progress.
+
 # Turnaround Profile
-The turnaround profile is a set of individual services.
+
+The turnaround profile is a list of individual services.
 The profile first starts with a few selective attributes, and if followed by one or more services.
+
+```yaml
+movement: arrival
+body: narrow
+ramp-type: jetway
+payload: pax
+services:
+  - service: baggage
+    vehicle: baggage-train
+    start: 10
+    duration: 20
+  - service: cargo
+    vehicle: uld-loader
+    start: 15
+    duration: 20
+  - service: cleaning
+    vehicle: cleaning
+    start: 15
+    duration: 25
+```
 
 ## Profile Attributes
 
 ### Aircraft type
-ICAO Aircraft type.
-The aircraft type can also be an aircraft class, a single letter `A` to `F`, which characterise all aircrafts of that class.
+ICAO Aircraft type designator.
+The aircraft type is used to determine if the aircraft is a `narrow` or `wide` body type of aircraft.
 
 ### Movement
-Determine if the profile applies to arrival or departure.
+Determine if the profile applies to `arrival` or `departure`.
 
 ### Ramp Type
-Determine if the profile applies to ramp with a jetway, or parking with jetway.
+Determine if the profile applies to ramp with a `jetway`, or parking `tiedown`.
 
 ### Payload
 Determine if the aircraft is a passenger (`pax`) or a `cargo` flight.
@@ -104,7 +134,18 @@ Determine if the aircraft is a passenger (`pax`) or a `cargo` flight.
 The list of services for that profile.
 
 ## Service
+
+```Yaml
+services:
+  -
+    service: fuel
+    start: -50
+    duration: 30
+    precise-position: fuel-rightwing
+```
+
 Each service correspond to the move of a ground support equipment that first travels from a *parking* to the ramp, then delivers the service to the aircraft, and finally leaves the ramp to a final *destination*.
+
 Each service is scheduled to occur at a time relative to the movement of the flight.
 For arrival services, scheduling of services is relative to the arrival time of the flight which correspond to the on-block time. For departure services, scheduling is relative the departure time of the flight, which correspond to the off-block time.
 

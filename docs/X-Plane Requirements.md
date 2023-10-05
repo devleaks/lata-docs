@@ -10,3 +10,4 @@ On startup, LATA will load the definition of the airport:
 
 If some data is missing or mis-constructed, LATA will fail building routes.
 
+Please refer to X-Plane World Editor and airport file format (apt.dat files) for constructing such data. It is beyond the scope of this plugin.
