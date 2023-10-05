@@ -53,6 +53,7 @@ aircraft: C
 
 # Ground Support Equipment
 
+Each piece of equipment need to be declared so that it can be associated with an object and reproduced in the simulator.
 
 ```yaml
 small-train:
