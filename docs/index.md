@@ -10,3 +10,4 @@ The plugin generates activity based on instructions it receives. It does not coo
 
 This plug in only generate activity on the *ground of an airport*, on the taxiways and service roads of that airport. It does not generate activity in the surroundings, roads, highways or even water.
 
+[[How It Works|Here]] is a little explanation of how it works.

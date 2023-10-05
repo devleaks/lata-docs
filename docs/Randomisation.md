@@ -29,4 +29,3 @@ LATA is not specific to a precise *vehicle type*, but rather to all vehicles of 
 ## Tip and Tricks for Realistic Randomisation
 
 It is not possible to use randomisation without a few constrains. For example, if the parking is randomly selected, one day or another, LATA will select the same parking twice and aircrafts and ground support vehicle will collide. The trick is to exclude random values that have already been used from new generated ones.
-

@@ -11,7 +11,7 @@ Sewage
 APU
 ASU
 Crew coaches
-Administrative vehicle
+Administrative vehicle (customs, etc.)
 Maintenance vehicle
 
 # Services for departing flights

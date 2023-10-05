@@ -1,4 +1,5 @@
 LATA uses a set of configuration files. All files are **Yaml** formatted.
+
 - Aircraft types and service equipment profile,
 - Ground support equipment,
 - Turnaround profile.
@@ -17,6 +18,7 @@ A321:
 ## Ground Support Equipment Profile
 For a given aircraft type, the purpose of the ground support profile is to specify very precise points where ground support vehicule must stop around the aircraft.
 Each precise position is given relative to the tip nose of the aircraft.
+
 
 ```yaml
 aircraft: A320
@@ -62,18 +64,19 @@ small-train:
   speed: 20
   fast: 30```
 
+### Key
 The key is the name of the model of service vehicle (example above: `small-train`).
 Please note that in the example above, the model correspond to a set of more than one object chained together, one after the other, each after a `lag` distance.
 
-Service
+### Service
 Type of the service this vehicle is used for. This criteria is used when selecting a vehicle for a service.
 
-Model
+### Model
 X-Plane virtual path to 3D model file.
 The model is searched in all libraries available to X-Plane.
 (The demo only uses standard X-Plane models.)
 
-Slow, Speed, and Fast
+### Slow, Speed, and Fast
 The three attributes are the speed of movement in kilometres per hour for the vehicle. Fast is the speed on service roads. Normal is the speed on ramps. Slow is the speed when closing to the aircraft.
 
 # Turnaround Profile
@@ -82,20 +85,20 @@ The profile first starts with a few selective attributes, and if followed by one
 
 ## Profile Attributes
 
-Aircraft type
+### Aircraft type
 ICAO Aircraft type.
 The aircraft type can also be an aircraft class, a single letter `A` to `F`, which characterise all aircrafts of that class.
 
-Movement
+### Movement
 Determine if the profile applies to arrival or departure.
 
-Ramp Type
+### Ramp Type
 Determine if the profile applies to ramp with a jetway, or parking with jetway.
 
-Payload
+### Payload
 Determine if the aircraft is a passenger (`pax`) or a `cargo` flight.
 
-Services
+### Services
 The list of services for that profile.
 
 ## Service
