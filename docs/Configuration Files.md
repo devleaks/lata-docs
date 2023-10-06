@@ -71,7 +71,7 @@ small-train:
   slow: 5
   speed: 20
   fast: 30
-  ```
+```
 
 ### Key
 The key is the name of the type of service vehicle (example above: `small-train`).
