@@ -1,5 +1,5 @@
 The following movements can be created with LATA.
-
+![[movements.png]]
 # Taxi
 LATA can create the movement of an aircraft taxiing out/in from/to a parking position to/from the begin/end of a runway.
 

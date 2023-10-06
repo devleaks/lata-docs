@@ -19,10 +19,13 @@ A321:
 
 ## Ground Support Equipment Profile
 
-For a given aircraft type, the purpose of the ground support equipment profile is to specify very precise points where ground support vehicule must stop around the aircraft.
+For a given aircraft type, the purpose of the ground support equipment profile is to specify very precise points where ground support vehicle must stop around the aircraft.
+
+![[aircraft_ramp.png]]
 
 Each precise position is given relative to the tip nose of the aircraft.
 
+![[service_positions.png]]
 
 ```yaml
 aircraft: A320
@@ -52,6 +55,7 @@ Without a precise position of support vehicle through a profile, LATA will use a
 
 ```yaml
 aircraft: C
+	class: C
 …
 ```
 
@@ -89,12 +93,14 @@ Please note that in the example above, the model correspond to a list of more th
 ### Slow, Speed, and Fast
 The three attributes are the speed of movement in kilometres per hour for the vehicle. Fast is the speed on service roads. Normal is the speed on ramps. Slow is the speed when closing to the aircraft.
 
-> Please note that in LST the speed of an object cannot be zero, in which case the object would stop and no longer progress.
+> Please note that in LST the speed of an object cannot be zero, in which case the object would stop and no longer progress. Setting speed to 0 is like infinite WAIT.
 
 # Turnaround Profile
 
 The turnaround profile is a list of individual services.
 The profile first starts with a few selective attributes, and if followed by one or more services.
+
+![[ta_scheduling.png]]
 
 ```yaml
 movement: arrival
