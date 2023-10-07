@@ -3,6 +3,7 @@ LATA uses a set of configuration files. All files are **Yaml** formatted.
 - Aircraft types and service equipment profile,
 - Ground support equipment,
 - Turnaround profile.
+
 # Aircraft Type
 
 Aircraft type it used for two main informations. The overall size of the aircraft for determining average turn around operation times, but also to determine the precise position of ground support vehicle around the aircraft. The later is called the Ground Support Equipment Profile.
@@ -69,8 +70,8 @@ Each piece of equipment need to be declared so that it can be associated with an
 small-train:
   service: baggage
   model:
-    - lata/gse/small_baggage_train_loco.obj
-    - lata/gse/small_baggage_train_wagon.obj
+    - lata/gse/baggage_train_tractor.obj
+    - lata/gse/baggage_train_wagon.obj
   Lag: 0.4
   slow: 5
   speed: 20
@@ -81,7 +82,7 @@ small-train:
 The key is the name of the type of service vehicle (example above: `small-train`).
 
 ### Service
-Type of the service this vehicle is used for. This criteria is used when selecting a vehicle for a service.
+Type of the service this vehicle is capable of delivering. This criteria is used when selecting a vehicle for a service.
 
 ### Model
 X-Plane virtual path to 3D model file.
@@ -101,25 +102,30 @@ The turnaround profile is a list of individual services.
 The profile first starts with a few selective attributes, and if followed by one or more services.
 
 ![[ta_scheduling.png]]
-
+#### Example for arrival
 ```yaml
 movement: arrival
 body: narrow
 ramp-type: jetway
 payload: pax
 services:
-  - service: baggage
-    vehicle: baggage-train
-    start: 10
-    duration: 20
-  - service: cargo
-    vehicle: uld-loader
-    start: 15
-    duration: 20
   - service: cleaning
-    vehicle: cleaning
-    start: 15
-    duration: 25
+    vehicle: cleaning-truck
+    start: 20
+    duration: 15
+```
+
+#### Example for departure:
+```yaml
+movement: departure
+body: narrow
+ramp-type: jetway
+payload: pax
+services:
+  - service: fuel
+    vehicle: fuel-tanker-small
+    start: -45
+    duration: 15
 ```
 
 ## Profile Attributes
@@ -146,8 +152,8 @@ The list of services for that profile.
 services:
   -
     service: fuel
-    start: -50
-    duration: 30
+    start: -45
+    duration: 15
     precise-position: fuel-rightwing
 ```
 
@@ -161,7 +167,7 @@ Type of the service.
 Example of service types are: sewage, catering, refuelling, baggage offloading or loading, cargo handling, water, APU, cones…
 
 ### Vehicle
-Name of the model of service vehicle used to deliver the service. Must correspond to the model of a Ground Support Equipment above.
+Name of the model of service vehicle used to deliver the service. Must correspond to the model of a Ground Support Equipment above. If the vehicle specified here cannot be found, another vehicle capable of delivering the same service will be randomly selected.
 
 ### Start
 Time in minutes, relative to the block time, when the service should occur.
@@ -192,8 +198,13 @@ Configuration files are very loose and permissive. However, when building activi
 In case no match is found, the movement is abandoned with warning messages written to screen or log files.
 
 ## Service
+
 The type of Service (catering, fuel, apu…) must match in all file. The string used can be anything, it could be `dummy`, however, the word `dummy` must be the service type in the turnaround profile, in the ground support equipment definition (with the 3D model, and the GSE profile. If there is a mismatch, if a turnaround cannot find a Service, or if a service cannot locate a vehicle, warnings will be issued and the Service will be ignored.
+
 ## Vehicle
+
 The type of vehicle specified in the Service must match a vehicle type in the ground support equipment definition file. If no vehicle is found, a warning is issued and the service is ignored.
+
 ## Service Position
+
 A Service `precise-position` must match the name of a position in the GSE profile. If a precise-position cannot be found, another position for the service is used. If no position can be found, the center of the ramp is used.

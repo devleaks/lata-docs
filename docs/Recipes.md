@@ -58,3 +58,7 @@ cones:
 
 LATA will not generate any movement for that Service. The object will be spawned at the time of service (`start`) and removed after the service (`duration`).
 Typical example of such objects that appear around the aircraft when it arrives are cones or chocks. They are removed, or disappear, just before the aircraft leaves.
+
+# Simpler Turnaround Scheduling
+
+LATA uses independent arrival and departure turnaround service scheduling. It is also possible to schedule all services relative to the arrival time, and ignore or minimize turnaround services relative to departure.

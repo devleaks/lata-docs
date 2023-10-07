@@ -24,6 +24,8 @@ Parkings and destinations have an X-Plane *type* like baggage_loader, baggage_tr
 
 LATA is not specific to a precise *vehicle type*, but rather to all vehicles of a type of *service*. An X-Plane parking or destination that accepts `fuel_liners` will accept all `fuel` service vehicles in LATA.
 
+If no specific parking or destination can be found, a random one is selected.
+
 # Controllable Randomisation
 
 ## Tip and Tricks for Realistic Randomisation
