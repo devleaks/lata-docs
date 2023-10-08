@@ -1,12 +1,12 @@
 
 # Use as a X-Plane Plugin
 
-Currently, LATA cannot be used as a X-Plane plugin. You must use it "externally".
+Currently, LATA cannot be used as a X-Plane plugin. It must be used from outsideX-Plane, as a external, independent application.
 
 
 # Setup Parameters
 
-Please edit the file `__init__.py` with a text editor and adjust the path to X-Plane home folder.
+If not used inside X-Plane folder, LATA needs to locate X-Plane. To do so, please edit the file `__init__.py` with a text editor and adjust the path to X-Plane home folder.
 
 # Use lata-cli Application
 
@@ -71,16 +71,10 @@ LATA creates files for LST in the X-Plane 12/Custom Sceneries/LATA folder.
 ```sh
 
 $ ls X-Plane 12/Custom Scenery/Lata
+library
 LICENSE
 LST_LFBO_TAR_ARR_F12_A321_2310061618
-LST_LFBO_TAR_ARR_F12_A321_2310061619
-LST_LFBO_TAR_ARR_F12_A321_2310061753
-LST_LFBO_TAR_ARR_F12_A321_2310061759
-LST_LFBO_TAR_ARR_F12_A321_2310061801
-LST_LFBO_TAR_ARR_F12_A321_2310061802
 README.md
-XCSL_AIRCRAFTS
-XCSL_CARS
 packages.lst
 plugins
 ```

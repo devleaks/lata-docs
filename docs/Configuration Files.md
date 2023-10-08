@@ -1,6 +1,6 @@
 LATA uses a set of configuration files. All files are **Yaml** formatted.
 
-- Aircraft types and service equipment profile,
+- Aircraft types and service equipment position profile,
 - Ground support equipment,
 - Turnaround profile.
 
