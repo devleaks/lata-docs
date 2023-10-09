@@ -134,6 +134,8 @@ $ python lata-cli.py create random tow EDDM
 
 # Cleanup
 
+This command removes all files generated for the supplied airport. If there are many generated LST files, airport activity can become busy. To remove all activities at once, issue:
+
 ```
 lata-cli cleanup EBBR
 ```

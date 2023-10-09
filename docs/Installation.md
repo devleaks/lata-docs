@@ -1,14 +1,13 @@
 
-# Use as a X-Plane Plugin
+## Installation Requirements
 
-Currently, LATA cannot be used as a X-Plane plugin. It must be used from outsideX-Plane, as a external, independent application.
+LATA is an application written in the python language. It will require a working copy of a recent python interpreter.
 
+## LATA Software Installation
 
-# Setup Parameters
+Download the latest version of LATA from [GitHub](https://github.com/devleaks/lata). 
 
-If not used inside X-Plane folder, LATA needs to locate X-Plane. To do so, please edit the file `__init__.py` with a text editor and adjust the path to X-Plane home folder.
-
-# Use lata-cli Application
+Decompress the archive file into X-Plane Custom Scenery folder.
 
 LATA is written in the python langage. 
 You will need a python interpreter to run it.
@@ -26,9 +25,23 @@ The following optional packages can be installed for development or testing purp
 $ pip install coloredlogs geojsonio
 ```
 
+## Custom Library of Objects
+
+LATA includes one default object, a marshall car, the same LiveTraffic plugin uses. If all your aircrafts and ground vehicles appear as marshall cars, you probably did not install [MisterX Library and Aircraft Extension](https://forums.x-plane.org/index.php?/files/file/28167-misterx-library-and-static-aircraft-extension/). LATA examples use this library as it contains both static aircrafts and a variety of ground support vehicles.
+## Use as a X-Plane Plugin
+
+Currently, LATA cannot be used as a X-Plane plugin. It must be used from *outside* X-Plane, as a external, independent application.
+
+In a later release, LATA will be accessible directly inside X-Plane.
+
+# lata-cli Application
+
+LATA provides a standalone command-line application to run it.
+
 ## Running The Client Application
 
 ```sh
+$ cd X-Plane/Custom Sceneries
 $ cd lata/plugins/PythonPlugins/lata
 $ python lata-cli.py -h
 usage: lata-cli [-h] {help,?,create,clean,lint} ...
@@ -59,7 +72,7 @@ options:
   --add_aircraft, --no-add_aircraft
                         Add aircraft object on ramp
 
-$ python lata-cli.py create turnaround LFBO arrival pax A321 F12 now
+$ python lata-cli.py create turnaround LFBO arrival pax A321 F12 "2023-10-08T00:15"
 
 (
 ..informative output of the execution..
@@ -70,10 +83,10 @@ LATA creates files for LST in the X-Plane 12/Custom Sceneries/LATA folder.
 
 ```sh
 
-$ ls X-Plane 12/Custom Scenery/Lata
+$ ls X-Plane/Custom Sceneries/Lata
 library
 LICENSE
-LST_LFBO_TAR_ARR_F12_A321_2310061618
+LST_LFBO_TAR_ARR_F12_A321_2310080015
 README.md
 packages.lst
 plugins
