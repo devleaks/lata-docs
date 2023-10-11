@@ -6,11 +6,11 @@ It is not possible to decide where the vehicle will go after service. It will al
 
 Parkings and destinations are special points on the X-Plane airport. X-Plane uses these positions to randomly create ground movements.
 
-Parkings and destinations have an X-Plane *type* like baggage_loader, baggage_train, crew_car, crew_ferrari, crew_limo, pushback, fuel_liners, fuel_jets, fuel_props, food, gpu. These types are converted to LATA service types so that these parking and destination positions are typed according to X-Plane use if a correspondance can be made.
+Parkings and destinations have an X-Plane *type* that determine which vehicle or type of vehicle can access it, like baggage_loader, baggage_train, crew_car, crew_ferrari, crew_limo, pushback, fuel_liners, fuel_jets, fuel_props, food, gpu. These X-Plane specific types are converted to LATA service types so that these parking and destination positions are typed according to X-Plane use if a correspondance can be made.
 
 |X-Plane|Service|Vehicle|
 |-|-|-|
-|baggage_loader|Baggage|belt|
+|baggage_loader|Baggage|baggage-belt|
 |baggage_train|Baggage|baggage-medium|
 |crew_car|Crew|coach-car|
 |crew_ferrari|Crew|coach-car|
@@ -18,11 +18,11 @@ Parkings and destinations have an X-Plane *type* like baggage_loader, baggage_tr
 |pushback|Aircraft|pushback|
 |fuel_liners|Fuel|hydrant|
 |fuel_jets|Fuel|tanker-large|
-|fuel_props|Fuel|tznker-medium|
+|fuel_props|Fuel|tanker-medium|
 |food|Catering|catering|
 |gpu|Aircraft|gpu|
 
-LATA is not specific to a precise *vehicle type*, but rather to all vehicles of a type of *service*. An X-Plane parking or destination that accepts `fuel_liners` will accept all `fuel` service vehicles in LATA.
+LATA is not specific to a precise *vehicle type*, but rather to all vehicles for a type of *service*. An X-Plane parking or destination that accepts `fuel_liners` will accept all `fuel` service vehicles in LATA.
 
 If no specific parking or destination can be found, a random one is selected.
 

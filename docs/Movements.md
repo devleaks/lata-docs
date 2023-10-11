@@ -1,4 +1,11 @@
 The following movements can be created with LATA.
+- Taxi from ramp to runway or runway to ramp
+- Tow from one ramp to another
+- Trip from parking to destination
+- Turnaround which is in fact a collection of one or more individual Services.
+
+A Service is a movement of a ground support equipment that provides a service to an aircraft.
+
 ![[movements.png]]
 # Taxi
 

@@ -9,7 +9,7 @@ small-train:
   model:
     - lata/gse/baggage_train_tractor.obj
     - lata/gse/baggage_train_wagon.obj
-  Lag: 0.4
+  lag: 0.4
   slow: 5
   speed: 20
   fast: 30

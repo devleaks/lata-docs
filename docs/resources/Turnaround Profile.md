@@ -1,6 +1,5 @@
 
-The turnaround profile is a list of individual services.
-The profile first starts with a few selective attributes, and if followed by one or more services.
+The turnaround profile is a list of individual services that make up the turnaround process. The profile first starts with a few selective attributes, and is followed by one or more services.
 
 ![[ta_scheduling.png]]
 #### Example for arrival
@@ -31,7 +30,7 @@ services:
     precise-positon: fuel-rightwing
 ```
 
-## Profile Attributes
+# Profile Attributes
 
 ### Aircraft type
 ICAO Aircraft type designator.
@@ -52,7 +51,7 @@ Optional profile name. It is possible to select a profile by its name. Name must
 ### Services
 The list of services for that profile.
 
-## Service
+# Service
 
 ```Yaml
 services:
@@ -68,6 +67,7 @@ Each service correspond to the move of a ground support equipment that first tra
 Each service is scheduled to occur at a time relative to the movement of the flight.
 For arrival services, scheduling of services is relative to the arrival time of the flight which correspond to the on-block time. For departure services, scheduling is relative the departure time of the flight, which correspond to the off-block time.
 
+## Service Attributes
 ### Service
 Type of the service.
 Example of service types are: sewage, catering, refuelling, baggage offloading or loading, cargo handling, water, APU, cones…
@@ -87,7 +87,9 @@ A precise position is the position where the service vehicle should go.
 
 When scheduling several services of the same type, it is possible to precise which position to select to avoid these vehicle to collide at the same position. For example, when scheduling two fuel services, it is possible to send each fuel truck under each wing.
 
-If no service position is specified, LATA will select a position for the service. If no position is found, the center of the ramp is selected.
+The name of the precise service position must match a position in the aircraft GSE position profile.
+
+If no precise service position is specified, LATA will select a position for the service. If no position is found, the center of the ramp is selected.
 
 ### No Movement
 If a service contains a `no-movement` attribute, LATA will place the vehicle for the corresponding service at the service time but will not animate the vehicle. It will remove the vehicle at the end of the service.
