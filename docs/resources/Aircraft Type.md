@@ -91,7 +91,7 @@ For example: Sewage truck will stop 35 meters from the nose tip of the aircraft,
 
 Distances are in meters, and can be negative, which correspond to the same distance in the opposite direction. Laterally, left is negative, longitudinally, in front of the aircraft is negative.
 
-If the orientation is a list of 2 values, a random orientation is taken within the range of values. Example above is orientation of cleaning truck between `[70, 110]` range.
+If the value is a list of 2 values, a random value is taken within the range of values. Example above is orientation of cleaning truck between `[70, 110]` range.
 
 If `backup` is set to true, the vehicle will first backup from its service position and then leave.
 

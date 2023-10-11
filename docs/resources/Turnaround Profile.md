@@ -9,6 +9,7 @@ movement: arrival
 body: narrow
 ramp-type: jetway
 payload: pax
+name: standard
 services:
   - service: cleaning
     vehicle: cleaning-truck
@@ -44,6 +45,9 @@ Determine if the profile applies to ramp with a `jetway`, or parking `tiedown`.
 
 ### Payload
 Determine if the aircraft is a passenger (`pax`) or a `cargo` flight.
+
+### Name
+Optional profile name. It is possible to select a profile by its name. Name must be unique, otherwise the profile is ignored.
 
 ### Services
 The list of services for that profile.
@@ -91,4 +95,4 @@ If a service contains a `no-movement` attribute, LATA will place the vehicle for
 In this case, vehicle should be thought as an « object ». For example, it is possible to place cones or chocks around the aircraft and have them disappear at the end of the turnaround. Cones or chocks will appear and disappear but will not be animated.
 
 ### Name
-Optional service name. The name is used in comments. If no name is used, LATA will assign a unique name.
+Optional service name. The name is used in comments. If no name is used, LATA will assign a unique name based on service type and sequence number.
