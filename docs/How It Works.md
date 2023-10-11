@@ -1,7 +1,7 @@
 
-The Little Airport Turnaround Activity (LATA) plugin or side application generates object movement files that can be processed by the Living Scenery Technology (LST) plugin.
+The Little Airport Turnaround Activity (LATA) plugin or side application generates object movement files that can be processed by the [Living Scenery Technology](https://forums.x-plane.org/index.php?/files/file/82876-living-scenery-technology/) (LST) plugin.
 
-All files that LATA generates are placed in a new custom scenery file called LATA and do not interfere with other sceneries. LST will find and load them when started and generate appropriate objects and their movements. LATA manages all generated files, including their removal when no longer needed.
+All files that LATA generates are placed in a new custom scenery folder called LATA and do not interfere with other sceneries. LST will find and load them when started and generate appropriate objects and their movements. LATA manages all generated files, including their removal when no longer needed.
 
 LATA generates movement files based on user requests.
 

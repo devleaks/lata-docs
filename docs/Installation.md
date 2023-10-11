@@ -41,7 +41,7 @@ LATA provides a standalone command-line application to run it.
 ## Running The Client Application
 
 ```sh
-$ cd X-Plane/Custom Sceneries
+$ cd X-Plane/Custom Scenery
 $ cd lata/plugins/PythonPlugins/lata
 $ python lata-cli.py -h
 usage: lata-cli [-h] {help,?,create,clean,lint} ...
@@ -79,11 +79,11 @@ $ python lata-cli.py create turnaround LFBO arrival pax A321 F12 "2023-10-08T00:
 )
 ```
 
-LATA creates files for LST in the X-Plane 12/Custom Sceneries/LATA folder.
+LATA creates files for LST in the X-Plane 12/Custom Scenery/LATA folder.
 
 ```sh
 
-$ ls X-Plane/Custom Sceneries/Lata
+$ ls X-Plane/Custom Scenery/Lata
 library
 LICENSE
 LST_LFBO_TAR_ARR_F12_A321_2310080015

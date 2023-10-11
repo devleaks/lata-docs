@@ -1,4 +1,3 @@
-
 # Welcome
 
 Little Airport Turnaround Activity (LATA) is a X-Plane plugin that generates animation on the ground of an airport.
