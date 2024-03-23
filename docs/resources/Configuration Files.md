@@ -21,3 +21,8 @@ The type of vehicle specified in the Service must match a vehicle type in the gr
 ## Service Position
 
 A Service `precise-position` must match the name of a position in the GSE profile. If a precise-position cannot be found, another position for the service is used. If no position can be found, the center of the ramp is used.
+
+# Profile Fallback
+
+For a given aircraft performing a turnaround, there is a sophisticate mechanism to find a suitable profile.
+LATA first tries to find a profile for the exact airplane. If none is found it tries to find a profile for an aircraft of the same class. Then for a generic narrow or wide body aircraft, and finally fall back on a large narrow body aircraft (class `C`) which is the default value if none is found.

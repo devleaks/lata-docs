@@ -4,9 +4,11 @@
 ## XPLANE_BASE
 Home directory of X-Plane.
 
-LATA uses the folder to find miscellaneous X-Plane files like airport definitions and objects.
+LATA uses the folder to find X-Plane files like airport definitions and objects.
 
-LATA will create a Custom Scenery called LATA and will place its generated files in that directory for LST. On restart, LST will automagically find those new files and generate traffic accordingly.
+If LATA was not installed in the X-Plane Custom Scenery folder, LATA will create a Custom Scenery called LATA and will place its generated files in that directory for LST. On restart, LST will automagically find those new files and generate traffic accordingly.
+
+> If you installed LATA in X-Plane Custom Scenery folder, there is no need to specify this parameter.
 
 # Options
 
@@ -15,6 +17,7 @@ Boolean, explicit.
 
 ## Cargo Flight Percentage
 Value between 0 and 100, to specify the ratio of passenger and cargo flights.
+When a flight is randomly generated, this parameter drives the type of the flight.
 Setting the cargo flight percentage to 25 will generate 75% passenger flights and 25% cargo flights.
 
 ## Closest Destination

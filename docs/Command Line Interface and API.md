@@ -4,8 +4,9 @@ LATA can be used as an external application through the lata-cli client applicat
 The client application makes direct use of the API. Both use the same parameters.
 
 When used from outside of X-Plane, as an external application, LATA has some constraints.
-1. It needs to know the home or root folder where X-Plane is installed.
-2. It does not connect to X-Plane, so it is necessary to restart LST if it is running so that it sees the newly created files.
+1. If LATA is not installed at the recommended location, it needs to know the folder where X-Plane is installed.
+2. It does not connect to X-Plane, so it is necessary to restart LST from inside X-Plane so that it takes into account the newly created files.
+3. If run from another python installation or environment, required python packages need to be installed in that environment.
 
 Client application accepts `-h` or `--help` flag to provide general help or help specific to an operation.
 
@@ -15,11 +16,12 @@ $ lata-cli -h                  
 usage: lata-cli [-h] {help,?,create,clean,lint} ...
 
 positional arguments:
-  {help,?,create,clean,lint}
+  {help,?,create,clean,lint,list}
     help (?)            help, print this help
-    create              create turnaround, taxi, or tow, or random movement
-    clean               clean airport movements or all
+    create              create turnaround, taxi, tow, or random movement
+    clean               clean all movements on an airport
     lint                lint configuration files
+    list                list possible and valid values for most elements (runways, ramps, aircraft types…)
 
 options:
   -h, --help            show this help message and exit
@@ -50,6 +52,7 @@ $ python lata-cli.py create turnaround OTHH arrival pax A35K A7 2023-10-08T00:15
 
 ```
 
+The arrival or departure flag determines which operations get carried out. The passenger or cargo flag also. (There is no catering on a cargo flight, there more ULD loaders on cargo flights, etc.)
 # Taxi
 
 ```sh
@@ -120,6 +123,8 @@ $ python lata-cli.py create random turnaround EDDM
 $ python lata-cli.py create random turnaround EDDM
 ```
 
+When no time is specified, the movement will start immediately with the taxi-in movement of the aircraft from the runway to the gate (arrival on-block). Turnaround operations will then be synchronized based on the time of arrival of the aircraft at the gate.
+
 ## Random Taxi
 
 ```sh
@@ -159,4 +164,4 @@ The linter includes a gross *object library checker* that scans X-Plane library 
 $ lata-cli list EBBR
 ```
 
-will list all valid values for runways, ramps, vehicles, aircraft types with model, and turn around services.
+will list all valid values for runways,  ramps, vehicles, aircraft types with model, and turn around services.

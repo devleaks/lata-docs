@@ -1,10 +1,9 @@
 The following movements can be created with LATA.
+
 - Taxi from ramp to runway or runway to ramp
 - Tow from one ramp to another
-- Trip from parking to destination
-- Turnaround which is in fact a collection of one or more individual Services.
-
-A Service is a movement of a ground support equipment that provides a service to an aircraft.
+- Trip of a ground support vehicle from parking to destination
+- Turnaround, which is a collection of one or more individual Services. A Service is a movement of a ground support equipment that provides a service to an aircraft. That vehicle will spawn at a parking position, service the aircraft at its ramp, and then head to a destination position where it will vanish.
 
 ![[movements.png]]
 # Taxi
@@ -60,9 +59,7 @@ A service support vehicle always travels from a X-Plane *parking* position, and 
 
 Taxi, tow, or turnarounds are scheduled according to aircraft arrival at gate (on-block time), or departure from gate (off-block time).
 
-A condition of success for scheduling is that the event being planned must occur in the future time, relative to the simulator time. (Please recall that the simulator time is not necessarily the current real life time.)
-
-If the event, for example a turnaround refueling, is scheduled to occur in the past, in respect of the local time, it is not created.
+A condition of success for scheduling is that the event being planned must occur in the future time, relative to the simulator time. (Please recall that the simulator time is not necessarily the current real life time.) If the event, for example a turnaround refueling, is scheduled to occur in the past, in respect of the local time, it is not created.
 
 It is possible to either explicitly specify a movement time by supplying the aircraft on block or off block time, or to start the movement(s) immediately. In the later case, LATA will determine the on block or off block time based on the desired movements, the first vehicle that needs moving will start immediately creating some *activity*.
 

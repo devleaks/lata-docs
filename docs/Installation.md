@@ -1,9 +1,11 @@
 
 ## Installation Requirements
 
-LATA is an application written in the python language. It will require a working copy of a recent python interpreter.
+LATA is an application and plugin written in the python language. It requires the XPPython3 X-Plane plugin.
 
 ## LATA Software Installation
+
+LATA is a Custom Scenery and needs to be installed as such.
 
 Download the latest version of LATA from [GitHub](https://github.com/devleaks/lata). 
 
@@ -79,11 +81,11 @@ $ python lata-cli.py create turnaround LFBO arrival pax A321 F12 "2023-10-08T00:
 )
 ```
 
-LATA creates files for LST in the X-Plane 12/Custom Scenery/LATA folder.
+LATA creates files for LST in the `X-Plane/Custom Scenery/lata` folder.
 
 ```sh
 
-$ ls X-Plane/Custom Scenery/Lata
+$ ls X-Plane/Custom Scenery/lata
 library
 LICENSE
 LST_LFBO_TAR_ARR_F12_A321_2310080015
